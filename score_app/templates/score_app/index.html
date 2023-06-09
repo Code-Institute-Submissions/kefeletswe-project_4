@@ -14,7 +14,7 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><i class="fa-solid fa-person-running-fast"></i> Marathon Management System</a>
+          <a class="navbar-brand" href="#"><i class="fa-solid fa-person-running"></i></i> Marathon Management System</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,51 +32,60 @@
       </nav>
       <!-- span entire view point and set margin to 4-->
       <div class="container-fluid">
-        <h2 class="m-4"> Runners</h2>
+        <h3 class="m-4"> Runners</h3>
         <div class="row">
             <div class="col-12">
-                <!--use if else and if tags to add some basic logic that says if we have marathon runners  in the database display them in a table and if we dont have them or else dispaly a messge that we dont have any runners in our database-->
+                {% if score_app %}
+                <!--use if else and if tags to add some basic logic that says if we have marathon runners  in the database display them in a table  or else dispaly a messge that we dont have any runners in our database-->
                 <div class="card border-primary ms-4 me-4 mb-4" >
                     <div class="card-header">Marathon Records</div>
                     <div class="card-body">
-        
-                      <p class="card-text">
-                        <!--responsive table, can be scrolled horizontally-->
+                      <p class="card-text"><!--responsive table, can be scrolled horizontally-->
                         <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Column heading</th>
-                                    <th scope="col">Column heading</th>
-                                    <th scope="col">Column heading</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-            
-                                  <tr class="table-danger">
-                                    <th scope="row">Danger</th>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                    <td>Column content</td>
-                                  </tr>
-                                 
-                                </tbody>
-                              </table>
-                        </div>
-                      </p>
-                    </div>
-                  </div>
-            </div> 
-                {% if runners %}
-                <h3 class="alert alert-dismissible alert-danger ms-4 me-4"><strong>Oh snap!</strong> Looks like there we dont have this runner in our records</h3>
-                {% else %}
-                
-        </div>
-        
-        {% block body %}
-        {% endblock %}
-      </div>
+                          <table class="table table-hover">
+                            <thead>
+                            <tr>
+                              <th scope="col">Type</th>
+                              <th scope="col">participant_number</th>
+                              <th scope="col">first_name</th>
+                              <th scope="col">last_name</th>
+                              <th scope="col">email</th>
+                              <th scope="col">phone_number</th>
+                              <th scope="col">age</th>
+                              <!--last column is for action buttons so that we can delete and add records-->
+                              <th scope="col">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {% for score_app in Participants %}
+                              <tr>
+                                  <td>
+                                      {{score_app.participant_number}}
+                                      {{score_app.first_name}}
+                                      {{score_app.last_name}}
+                                      {{score_app.email}}
+                                      {{score_app.phone_number}}
+                                      {{score_app.age}}
+                                      {{ACTIONS}}
+                                  </td>
+                              </tr>
+                              {% endfor %}
+
+
+                          </tbody>
+                        </table>
+                  </div> </p>
+</div>
+</div>
+                                                            
+{% else %}
+<h3 class="alert alert-dismissible alert-danger ms-4 me-4"><strong>Oh snap!</strong> No runners in our records</h3>
+{% endif %}         
+
+</div>
+</div>
+</div> 
+
       <footer class="mt-auto mb-4">
         <div class="text-center">
           <span>
