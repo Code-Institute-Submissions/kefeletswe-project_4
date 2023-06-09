@@ -45,38 +45,39 @@
                           <table class="table table-hover">
                             <thead>
                             <tr>
-                              <th scope="col">Type</th>
-                              <th scope="col">participant_number</th>
-                              <th scope="col">first_name</th>
-                              <th scope="col">last_name</th>
-                              <th scope="col">email</th>
-                              <th scope="col">phone_number</th>
-                              <th scope="col">age</th>
-                              <!--last column is for action buttons so that we can delete and add records-->
-                              <th scope="col">Actions</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              {% for score_app in Participants %}
-                              <tr>
-                                  <td>
-                                      {{score_app.participant_number}}
-                                      {{score_app.first_name}}
-                                      {{score_app.last_name}}
-                                      {{score_app.email}}
-                                      {{score_app.phone_number}}
-                                      {{score_app.age}}
-                                      {{ACTIONS}}
-                                  </td>
-                              </tr>
-                              {% endfor %}
-
-
-                          </tbody>
-                        </table>
-                  </div> </p>
-</div>
-</div>
+<!--responsive table, can be scrolled horizontally-->
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">participants_number</th>
+                                    <th scope="col">first_name</th>
+                                    <th scope="col">last_name</th>
+                                    <th scope="col">email</th>
+                                    <th scope="col">phone_number</th>
+                                    <th scope="col">age</th>
+                                    <!--last column is for action buttons so that we can delete and add records-->
+                                    <th scope="col">Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {% for score_app in Participants %}
+                                    <tr>
+                                        <td>
+                                            {{score_app.participants_number}}
+                                            {{score_app.first_name}}
+                                            {{score_app.last_name}}
+                                            {{score_app.email}}
+                                            {{score_app.phone_number}}
+                                            {{score_app.age}}
+                                            {{score_app.ACTIONS}}
+                                        </td>
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                              </table>
+                        </div>
                                                             
 {% else %}
 <h3 class="alert alert-dismissible alert-danger ms-4 me-4"><strong>Oh snap!</strong> No runners in our records</h3>
