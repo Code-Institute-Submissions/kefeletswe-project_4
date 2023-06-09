@@ -50,7 +50,6 @@
   <table class="table table-hover">
     <thead>
     <tr>
-                                    <th scope="col">Type</th>
                                     <th scope="col">participants_number</th>
                                     <th scope="col">first_name</th>
                                     <th scope="col">last_name</th>
@@ -62,17 +61,16 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    {% for score_app in Participants %}
-                                    <tr>
-                                        <td>
-                                            {{score_app.participants_number}}
-                                            {{score_app.first_name}}
-                                            {{score_app.last_name}}
-                                            {{score_app.email}}
-                                            {{score_app.phone_number}}
-                                            {{score_app.age}}
-                                            {{score_app.ACTIONS}}
-                                        </td>
+                                    {% for participants in score_app %}
+                                    <tr class="table-danger">
+                                        <td>{{participants.participants_number}}</td>
+                                        <td>{{participants.first_name}}</td>
+                                        <td>{{participants.last_name}}</td>
+                                        <td>{{participants.email}}</td>
+                                        <td>{{participants.phone_number}}</td>
+                                        <td>{{participants.age}}</td>
+                                        <td>{{ACTIONS}}</td>
+                                        
                                     </tr>
                                     {% endfor %} 
                                 </tbody>

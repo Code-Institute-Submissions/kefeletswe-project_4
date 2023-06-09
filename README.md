@@ -37,3 +37,13 @@ You can now use the `heroku` CLI program - try running `heroku apps` to confirm 
 ---
 
 Happy coding!
+
+
+
+PROBLEMS 
+1.kept on getting an end if error solved it by adding endif to line 77 in index.html file
+
+2.in admin could participants where not visible beacuse i added score_app instaed of participants in the table row
+
+solved by adding participants
+3. table could not align because i did not add td to each participants
