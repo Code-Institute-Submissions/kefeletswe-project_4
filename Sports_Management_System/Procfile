@@ -1,1 +1,1 @@
-web: gunicorn Sports_Management_SystemG.wsgi
+web: gunicorn Sports_Management_System.wsgi:application
