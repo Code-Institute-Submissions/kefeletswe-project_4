@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-#import dj_database_url
-#if os.path.isfile('env.py'):
-#    import env
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
 development = os.environ.get('DEVELOPMENT', False)
 
     
@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
 
-ALLOWED_HOSTS = ['8000-kefeletswe-project4-4a4gm8zfnke.ws-eu101.gitpod.io',os.environ.get('HEROKU_HOSTNAME')]
+ALLOWED_HOSTS = ['8000-kefeletswe-project4-a4lx9xcx1nr.ws-eu101.gitpod.io','project-four.herokuapp.com/',os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -85,14 +85,14 @@ WSGI_APPLICATION = 'Sports_Management_System.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if development:
-DATABASES = {
+    DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 else:
-DATABASES = {
+    DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
